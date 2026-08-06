@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.claude/
+debug_captures/
+packaging/windows/build/
+packaging/windows/build_venv/
+packaging/windows/dist/
+packaging/windows/installer_output/
+packaging/windows/tesseract_bundle/*
+!packaging/windows/tesseract_bundle/PUT_TESSERACT_HERE.txt
