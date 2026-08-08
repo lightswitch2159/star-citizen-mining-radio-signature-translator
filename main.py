@@ -21,7 +21,7 @@ from tkinter import ttk, messagebox
 import capture
 import config
 import ocr
-from mineral_data import lookup_rs, rarity_of, RARITY_COLORS
+from mineral_data import lookup_rs
 
 try:
     from pynput import keyboard as pynput_keyboard
@@ -375,11 +375,8 @@ class App:
     def _show_result(self, digits, status, candidates):
         if status == "match" and candidates:
             c = candidates[0]
-            rarity = rarity_of(c.mineral)
-            color = RARITY_COLORS.get(rarity, "#0a7d2c")
-            self.mineral_label.config(text=c.mineral, foreground=color)
-            rarity_str = f"{rarity}  |  " if rarity else ""
-            self.detail_label.config(text=f"{rarity_str}RS {c.value} (x{c.multiple})  |  read: {digits}")
+            self.mineral_label.config(text=c.mineral, foreground="#0a7d2c")
+            self.detail_label.config(text=f"RS {c.value} (x{c.multiple})  |  read: {digits}")
             # Informational, not a caution -- this is just what else the
             # sheet says commonly comes from the same rock.
             hint = f"Rock may also contain: {c.co_occurs_with}" if c.co_occurs_with else ""
